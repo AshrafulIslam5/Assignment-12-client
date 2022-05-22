@@ -7,6 +7,8 @@ import NotFound from "./pages/NotFound/NotFound";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import Header from "./pages/Shared/Header";
 import SignUp from "./pages/SignUp/SignUp";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>} />
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
