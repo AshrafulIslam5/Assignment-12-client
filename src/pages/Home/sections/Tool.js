@@ -3,17 +3,16 @@ import React from 'react';
 const Tool = ({ tool }) => {
     const { name, img, description, min_order_quan, quantity, price } = tool;
     return (
-        <div className='rounded-2xl bg-base-100 shadow-lg relative'>
-            <figure className='px-10 pt-10 mb-72'>
-                <img className='mx-auto' src={img} alt="" />
-            </figure>
-            <div className='card-body items-center text-center absolute bottom-1'>
-                <h2 className='card-title'>{name}</h2>
+
+        <div class="card w-full bg-base-100 shadow-xl relative pb-4">
+            <figure className='p-6 mb-56 md:mb-44'><img src={img} alt="" /></figure>
+            <div class="absolute bottom-2 flex flex-col text-center px-8">
+                <h2 className='text-2xl font-semibold text-center'>{name}</h2>
                 <p><strong>Minimum Order Quantity:</strong>{min_order_quan}</p>
                 <p><strong>Total Quantity:</strong>{quantity}</p>
                 <p>{description}</p>
                 <p><strong>Price per Piece:</strong> {price}</p>
-                <button className="btn btn-primary text-white">Order</button>
+                <button className="btn btn-primary my-4 text-white">Order</button>
             </div>
         </div>
     );
