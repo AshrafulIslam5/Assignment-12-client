@@ -1,20 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../../images/Logo.png'
+import CustomLink from '../CustomLink/CustomLink';
 const Header = () => {
     return (
         <div>
             <div class="navbar bg-base-100 px-10">
                 <div className='navbar-start'>
-                    <Link to={'/'}><img className='w-20 hover:bg-slate-200 rounded-lg cursor-pointer' src={logo} alt="" /></Link>
+                    <CustomLink to={'/'}><img className='w-20 hover:bg-slate-200 rounded-lg cursor-pointer' src={logo} alt="" /></CustomLink>
                 </div>
                 <div className='navbar-end'>
                     <div className="flex items-center gap-7 text-xl mr-6">
-                        <Link to="/">Home</Link>
-                        <Link to="/portfolio">My Portfolio</Link>
-                        <Link to="/blogs">My Blogs</Link>
-                        <Link to="/dashboard">Dashboard</Link>
-                        <Link to="/login">Login</Link>
+                        <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/">Home</CustomLink>
+                        <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/portfolio">My Portfolio</CustomLink>
+                        <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/blogs">My Blogs</CustomLink>
+                        <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/dashboard">Dashboard</CustomLink>
+                        <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/login">Login</CustomLink>
                     </div>
                 </div>
             </div>
