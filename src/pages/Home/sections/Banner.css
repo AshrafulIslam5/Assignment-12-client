@@ -1,0 +1,8 @@
+.banner_image {
+    background: url(../../../images/bannerBg.jpg);
+    height: calc(100vh - 90px);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+}
