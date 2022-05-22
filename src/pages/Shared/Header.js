@@ -11,9 +11,9 @@ const Header = () => {
     </>
     return (
         <div>
-            <div class="navbar bg-base-100 px-10">
+            <div class="navbar bg-base-100 px-16">
                 <div className='navbar-start'>
-                    <CustomLink to={'/'}><img className='w-20 hover:bg-slate-200 rounded-lg cursor-pointer' src={logo} alt="" /></CustomLink>
+                    <CustomLink to={'/'}><img className='w-20 hover:bg-slate-100 rounded-lg cursor-pointer' src={logo} alt="" /></CustomLink>
                 </div>
                 <div className='navbar-end'>
                     <div className="gap-7 text-xl mr-6  hidden md:flex">
