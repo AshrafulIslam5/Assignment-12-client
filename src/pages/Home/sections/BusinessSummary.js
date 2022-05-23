@@ -18,14 +18,14 @@ const BusinessSummary = () => {
                         <ion-icon name="arrow-up-circle"></ion-icon>
                     </div>
                     <div className="stat-title">Annual Revenue</div>
-                    <div className="stat-value"><CountUp delay={3} end={120} duration={5} />M</div>
+                    <div className="stat-value"><CountUp delay={1} end={120} duration={5} />M</div>
                 </div>
                 <div className="stat hover:text-white hover:bg-primary hover:shadow-2xl hover:shadow-primary place-items-center ">
                     <div className='stat-figure text-fuchsia-400'>
                         <ion-icon name="flag-outline"></ion-icon>
                     </div>
                     <div className="stat-title">Countries Reached</div>
-                    <div className="stat-value"><CountUp delay={3} end={60} duration={5.2} />+</div>
+                    <div className="stat-value"><CountUp delay={1.2} end={60} duration={5.2} />+</div>
                 </div>
             </div>
         </div>

@@ -26,7 +26,7 @@ const Login = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || '/';
 
-    const [token] = useGetUserAndToken(user, GoogleUser)
+    const [token] = useGetUserAndToken(user || GoogleUser)
 
     useEffect(() => {
         if (token) {
@@ -43,9 +43,11 @@ const Login = () => {
         const resetEmail = resetEmailRef.current.value;
         console.log(resetEmail)
         await sendPasswordResetEmail(resetEmail);
-        toast.info("Email sent!", {
-            icon: false
-        })
+        if (ResetError) {
+            toast.error(ResetError?.message)
+        } else {
+            toast.info("Email sent!")
+        }
     }
 
     if (loading || GoogleLoading || sending) {
@@ -53,8 +55,8 @@ const Login = () => {
     }
 
     let errorMsg;
-    if (error || GoogleError || ResetError) {
-        errorMsg = <p className='text-red-500 text-xs mb-2'>{error?.message || GoogleError?.message || ResetError?.message}</p>
+    if (error || GoogleError) {
+        errorMsg = <p className='text-red-500 text-xs mb-2'>{error?.message || GoogleError?.message}</p>
     }
 
 
@@ -108,13 +110,12 @@ const Login = () => {
             <button onClick={() => signInWithGoogle()} className="btn btn-outline w-full font-light mb-8 uppercase hover:bg-primary">Continue with Google</button>
             <input type="checkbox" id="Reset_modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box relative text-center px-20">
+                <div class="modal-box relative text-center">
                     <label for="Reset_modal" class="btn btn-sm btn-primary text-white btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg">Reset Your Password</h3>
+                    <h3 class="font-bold text-lg mb-5 border-2 pb-1 border-secondary border-t-0 border-x-0 ">Reset Your Password</h3>
                     <form onSubmit={forgetPass}>
-                        <label htmlFor="email" className='float-left ml-2 mt-3'>Email</label>
-                        <input ref={resetEmailRef} type="email" className='w-full input input-bordered hover:input-primary' />
-                        <input type="submit" value='Reset Password' class="btn btn-primary mx-auto w-full mt-3" />
+                        <input ref={resetEmailRef} placeholder='Your Email Address' type="email" className="mt-3 input border-b-2 border-slate-400 border-t-0 placeholder:text-center text-center border-x-0 rounded-none focus:input-primary focus:outline-0 focus:outline-offset-0 hover:input-primary w-3/4 mb-2" />
+                        <input type="submit" value='Reset Password' class="text-white btn btn-primary mx-auto w-4/5 mt-3" />
                     </form>
                 </div>
             </div>

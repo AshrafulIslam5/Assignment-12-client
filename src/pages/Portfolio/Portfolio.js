@@ -23,7 +23,7 @@ const Portfolio = () => {
             icon: <div className='border border-primary hover:border-accent  shadow shadow-primary hover:shadow-accent p-3 rounded-lg text-black text-4xl md:text-6xl'><ion-icon name="logo-react"></ion-icon></div>
         },
         {
-            name: 'node',
+            name: 'Nodejs',
             icon: <div className='border border-primary hover:border-accent  shadow shadow-primary hover:shadow-accent p-3 rounded-lg text-black text-4xl md:text-6xl'><ion-icon name="logo-nodejs"></ion-icon></div>
         },
         {
@@ -43,7 +43,7 @@ const Portfolio = () => {
             icon: <div className='border border-primary hover:border-accent  shadow shadow-primary hover:shadow-accent p-3 rounded-lg mx-auto'><img className='w-[60px]' src={heroku} alt="" /></div>
         },
         {
-            name: 'JsonWebToken',
+            name: 'JWT',
             icon: <div className='border border-primary hover:border-accent  shadow shadow-primary hover:shadow-accent p-3 rounded-lg mx-auto'><img className='w-[60px]' src={JWT} alt="" /></div>
         },
         {
@@ -79,7 +79,7 @@ const Portfolio = () => {
     return (
         <div>
             <div className='flex flex-col md:flex-row mt-5 p-4 md:px-20'>
-                <div className='border hover:shadow-xl text-center md:w-2/4 flex flex-col items-center p-5 rounded-lg rounded-b-none md:rounded-r-none'>
+                <div className='border text-center md:w-2/4 flex flex-col items-center p-5 rounded-lg rounded-b-none md:rounded-r-none'>
                     <div class="avatar">
                         <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src="https://scontent.fdac27-2.fna.fbcdn.net/v/t39.30808-6/270204230_2044185662408772_4760097193550730154_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dMEuLKMHk94AX-JK0Xj&_nc_ht=scontent.fdac27-2.fna&oh=00_AT9Jh6rtN0DX_G7DHBBcGIrYT1JbnkumdiyOhgoWe4vyuA&oe=628F9B48" alt='' />
@@ -101,14 +101,14 @@ const Portfolio = () => {
                         <p><strong>Now Learning: </strong>Material UI and more</p>
                     </div>
                 </div>
-                <div className="border rounded-lg hover:shadow-xl rounded-t-none md:rounded-l-none md:w-3/4 p-10">
-                    <div className='border p-5 flex flex-col items-center shadow-md'>
+                <div className="border rounded-lg  rounded-t-none md:rounded-tr-lg md:rounded-l-none md:w-3/4 p-10">
+                    <div className='border p-5 flex flex-col items-center rounded-lg shadow-md'>
                         <h2 className='text-2xl mb-3'>Skills</h2>
                         <div className='grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center'>
                             {
                                 skills.map(skill => <div className='text-center flex flex-col'>
                                     {skill.icon}
-                                    <h2 className=''>{skill.name}</h2>
+                                    <h2>{skill.name}</h2>
                                 </div>
                                 )
                             }
@@ -116,10 +116,10 @@ const Portfolio = () => {
                     </div>
                 </div>
             </div>
-            <div className=' w-11/12 mx-auto rounded-xl shadow-2xl shadow-primary my-36'>
-                <div className='p-16'>
-                    <h2 className='text-center text-2xl my-4'><span className='text-primary'>Projects</span> Done by me!</h2>
-                    <div className='grid grid-cols-3 gap-3'>
+            <div className=' w-11/12 mx-auto rounded-xl md:shadow-2xl md:shadow-primary my-36'>
+                <div className='p-5 md:p-16'>
+                    <h2 className='text-center text-black text-2xl my-4'><span className='text-primary'>Projects</span> Done by me!</h2>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
                         {
                             projects.map(p => <div class="card w-full bg-base-100 shadow-xl p-4 relative border border-primary">
                                 <figure className='p-4'><img className='border-primary rounded-lg border' src={p.img} alt="" /></figure>

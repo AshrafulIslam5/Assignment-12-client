@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Require = () => {
+const Require = ({children}) => {
     return (
         <div>
             

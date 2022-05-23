@@ -9,6 +9,7 @@ import Header from "./pages/Shared/Header";
 import SignUp from "./pages/SignUp/SignUp";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PurchaseTool from "./pages/Home/sections/Tools/PurchaseTool";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
+        <Route path="/purchase/:id" element={<PurchaseTool></PurchaseTool>} />
         <Route path="/portfolio" element={<Portfolio></Portfolio>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>

@@ -3,7 +3,7 @@ import Footer from '../Shared/Footer';
 import Banner from './sections/Banner';
 import BusinessSummary from './sections/BusinessSummary';
 import Reviews from './sections/Reviews';
-import Tools from './sections/Tools';
+import Tools from './sections/Tools/Tools';
 
 const Home = () => {
     return (
