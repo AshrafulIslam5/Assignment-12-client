@@ -5,6 +5,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner';
+import useGetUserAndToken from '../../hooks/useGetUserAndToken';
 
 const Login = () => {
     const resetEmailRef = useRef('');
@@ -25,11 +26,13 @@ const Login = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || '/';
 
+    const [token] = useGetUserAndToken(user, GoogleUser)
+
     useEffect(() => {
-        if (user || GoogleUser) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, GoogleUser, navigate, from])
+    }, [token, navigate, from])
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)

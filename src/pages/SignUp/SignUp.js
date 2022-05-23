@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useGetUserAndToken from '../../hooks/useGetUserAndToken';
 import Spinner from '../Shared/Spinner';
 
 const SignUp = () => {
@@ -19,9 +20,12 @@ const SignUp = () => {
 
     const [signInWithGoogle, GoogleUser, GoogleLoading, GoogleError] = useSignInWithGoogle(auth);
 
-    if (user || GoogleUser) {
+    const [token] = useGetUserAndToken(user || GoogleUser);
+
+    if (token) {
         navigate('/')
     }
+
     if (loading || GoogleLoading || updating) {
         return <Spinner></Spinner>
     }

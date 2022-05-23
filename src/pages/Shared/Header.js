@@ -13,7 +13,8 @@ const Header = () => {
         user.photoURL = noPfpUser;
     }
     const logout = () => {
-        signOut(auth)
+        signOut(auth);
+        localStorage.removeItem('accessToken')
     }
     const navlinks = <>
         <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/">Home</CustomLink>
