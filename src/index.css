@@ -6,9 +6,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-*{
+* {
   font-family: 'Poppins', sans-serif;
 }
-.font-Mont{
+
+.font-Mont {
   font-family: 'Montserrat', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(360deg, #9400d3, #3F00FF);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #9400d3, #3F00FF);
+
 }
