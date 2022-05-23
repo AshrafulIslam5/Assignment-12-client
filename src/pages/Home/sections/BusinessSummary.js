@@ -3,7 +3,7 @@ import CountUp from 'react-countup';
 
 const BusinessSummary = () => {
     return (
-        <div className='flex flex-col my-20 px-5 md:px-36'>
+        <div className='flex flex-col mt-52 mb-64 px-5 md:px-36'>
             <h2 className='text-center font-Mont font-bold text-3xl my-5'>Our Company Are the most known <span className='text-secondary'>House Accessories Manufacturer</span> around!</h2>
             <div className='stats stats-vertical md:stats-horizontal md:text-2xl shadow shadow-secondary-focus'>
                 <div className="stat hover:text-white hover:bg-primary hover:shadow-2xl hover:shadow-primary place-items-center ">
