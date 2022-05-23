@@ -8,21 +8,21 @@ const BusinessSummary = () => {
             <div className='stats stats-vertical md:stats-horizontal md:text-2xl shadow shadow-secondary-focus'>
                 <div className="stat hover:text-white hover:bg-primary hover:shadow-2xl hover:shadow-primary place-items-center ">
                     <div className='stat-figure text-fuchsia-400'>
-                    <ion-icon name="people-outline"></ion-icon>
+                        <ion-icon name="people-outline"></ion-icon>
                     </div>
                     <div className="stat-title">Served Customers</div>
-                    <div className="stat-value"><CountUp delay={3} end={100} duration={4.7} />K</div>
+                    <div className="stat-value"><CountUp  end={100} duration={4.7} />K</div>
                 </div>
                 <div className="stat hover:text-white hover:bg-secondary hover:shadow-2xl hover:shadow-primary place-items-center ">
                     <div className='stat-figure text-fuchsia-400'>
-                    <ion-icon name="arrow-up-circle"></ion-icon>
+                        <ion-icon name="arrow-up-circle"></ion-icon>
                     </div>
                     <div className="stat-title">Annual Revenue</div>
                     <div className="stat-value"><CountUp delay={3} end={120} duration={5} />M</div>
                 </div>
                 <div className="stat hover:text-white hover:bg-primary hover:shadow-2xl hover:shadow-primary place-items-center ">
                     <div className='stat-figure text-fuchsia-400'>
-                    <ion-icon name="flag-outline"></ion-icon>
+                        <ion-icon name="flag-outline"></ion-icon>
                     </div>
                     <div className="stat-title">Countries Reached</div>
                     <div className="stat-value"><CountUp delay={3} end={60} duration={5.2} />+</div>

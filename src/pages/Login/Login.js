@@ -54,7 +54,7 @@ const Login = () => {
         errorMsg = <p className='text-red-500 text-xs mb-2'>{error?.message || GoogleError?.message || ResetError?.message}</p>
     }
 
-    
+
 
 
     return (
@@ -62,7 +62,6 @@ const Login = () => {
             <h2 className='py-5 text-secondary text-center text-2xl'>Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <label htmlFor="email">Email</label>
                     <input {...register("email", {
                         required: {
                             value: true,
@@ -72,7 +71,7 @@ const Login = () => {
                             value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                             message: 'Please give a valid email'
                         }
-                    })} type="email" placeholder="Your Email Address" className="input input-bordered hover:input-primary w-full mb-2" />
+                    })} type="email" placeholder="Your Email Address" className="input border-b-2 border-slate-400 border-t-0 placeholder:text-center text-center border-x-0 rounded-none focus:input-primary focus:outline-0 focus:outline-offset-0 hover:input-primary w-full mb-2" />
                     <label>
                         {errors.email?.type === 'required' && <span className='label-text-alt text-red-500'>{errors.email.message}</span>}
                         {errors.email?.type === 'pattern' && <span className='label-text-alt text-red-500'>{errors.email.message}</span>}
@@ -81,7 +80,6 @@ const Login = () => {
 
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
                     <input {...register("password", {
                         required: {
                             value: true,
@@ -91,7 +89,7 @@ const Login = () => {
                             value: 6,
                             message: 'Atleast 6 charachters or longer'
                         }
-                    })} type="password" placeholder="Password" className="input input-bordered hover:input-primary w-full" />
+                    })} type="password" placeholder="Password" className="input border-b-2 border-slate-400 border-t-0 border-x-0 placeholder:text-center text-center rounded-none focus:input-primary focus:outline-0 focus:outline-offset-0 hover:input-primary w-full mb-2" />
                     <label>
                         {errors.password?.type === 'required' && <span className='label-text-alt text-red-500'>{errors.password.message}</span>}
                         {errors.password?.type === 'minLength' && <span className='label-text-alt text-red-500'>{errors.password.message}</span>}

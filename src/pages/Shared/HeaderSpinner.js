@@ -4,16 +4,15 @@ import { css } from "@emotion/react";
 
 const override = css`
   display: block;
-  margin: 40px auto;
   border-color: purple;
 `;
-const Spinner = () => {
+const HeaderSpinner = () => {
     const color = '#9400d3';
     return (
-        <div className='text-center mt-8'>
-            <ClipLoader color={color} css={override} size={60} speedMultiplier={3}/>
+        <div className='text-center'>
+            <ClipLoader color={color} css={override} size={45} speedMultiplier={7}/>
         </div>
     );
 };
 
-export default Spinner;
+export default HeaderSpinner;
