@@ -55,6 +55,26 @@ const Portfolio = () => {
     ];
 
 
+    const projects = [
+        {
+            Name: "Ashraful's Convention Center",
+            img: "https://images2.imgbox.com/ce/7f/uQ79eHwy_o.png",
+            LiveLink: "https://ashrafulsconventionstore.netlify.app/",
+            description: "It was just a home page using raw CSS when I just started Learning :)"
+        },
+        {
+            Name: "Star Laptops",
+            img: "https://images2.imgbox.com/c6/85/RMwbWfUO_o.png",
+            LiveLink: "https://assignment-11-ab83c.web.app/",
+            description: "I managed to do the basics of this one but I feel it's still incomplete and not how I wanted so I am going to remake this :)"
+        },
+        {
+            Name: "Ashraful's Phone Manager",
+            img: "https://images2.imgbox.com/12/5e/PFewXV1q_o.png",
+            LiveLink: "https://ashrafuls-phone-manager.netlify.app/",
+            description: "This is when I was Learing about api and when I found a big api with many electronic products :)"
+        }
+    ]
 
     return (
         <div>
@@ -96,8 +116,22 @@ const Portfolio = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                
+            <div className=' w-11/12 mx-auto rounded-xl shadow-2xl shadow-primary my-36'>
+                <div className='p-16'>
+                    <h2 className='text-center text-2xl my-4'><span className='text-primary'>Projects</span> Done by me!</h2>
+                    <div className='grid grid-cols-3 gap-3'>
+                        {
+                            projects.map(p => <div class="card w-full bg-base-100 shadow-xl p-4 relative border border-primary">
+                                <figure className='p-4'><img className='border-primary rounded-lg border' src={p.img} alt="" /></figure>
+                                <div class="flex flex-col text-center px-8 mb-16">
+                                    <h2 className='text-xl font-semibold text-center'>{p.Name}</h2>
+                                    <p className='text-sm'>{p.description}</p>
+                                    <a rel='noreferrer' href={p.LiveLink} target='_blank' className='btn bg-fuchsia-600 btn-primary text-white absolute bottom-2' >Visit Site</a>
+                                </div>
+                            </div>)
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     );
