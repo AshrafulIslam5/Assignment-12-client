@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuthState, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
+import { useForm } from 'react-hook-form';
 import Spinner from '../Shared/Spinner';
 
 const MyProfile = () => {
@@ -9,9 +9,9 @@ const MyProfile = () => {
     const { register, handleSubmit } = useForm();
     const [updateProfile, updating, Uerror] = useUpdateProfile(auth);
     const imagebbKey = '05f94c8b5b6970010a4d4d5d9deb7468';
-    const updatedEmail = user?.email;
+    
     const [UserFromDB, setUserFromDB] = useState({});
-
+    const updatedEmail = user?.email;
     useEffect(() => {
         fetch(`http://localhost:5000/user/${updatedEmail}`).then(res => res.json()).then(data => setUserFromDB(data))
     }, [updatedEmail])
@@ -69,8 +69,8 @@ const MyProfile = () => {
                     <div className='ml-10'>
                         <h2 className='text-3xl'>{user?.displayName}</h2>
                         <h2>{user?.email}</h2>
-                        <h2>{UserFromDB?.location}</h2>
-                        <h2>{UserFromDB?.number}</h2>
+                        <h2 className='text-sm text-slate-500'>{UserFromDB?.location}</h2>
+                        <h2 className='text-sm text-slate-500'>{UserFromDB?.number}</h2>
                     </div>
                 </div>
 
