@@ -7,11 +7,8 @@ const Reviews = () => {
         fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [])
-
-    // console.log(reviews?.slice(reviews[reviews.length - 1], 2));
-
-    const lastReview = reviews[reviews?.length - 1]
+    }, []);
+    
     return (
         <div>
             <h2 className='text-center my-20 text-4xl'>Our <span className='font-Mont font-extrabold text-primary'>C</span>ustomer's Reviews</h2>

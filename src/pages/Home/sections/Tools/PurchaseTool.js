@@ -23,24 +23,47 @@ const PurchaseTool = () => {
     }, [id]);
 
 
-    const { name, img, description, min_order_quan, quantity, Perprice } = tool;
+    const { _id, name, img, description, min_order_quan, quantity, Perprice } = tool;
 
     const HandleOrder = e => {
         e.preventDefault();
-        const name = user.displayName;
+        const PurchaserName = user.displayName;
         const email = user.email;
         const location = locationRef.current.value;
         const number = numberRef.current.value;
         const shopName = shopRef.current.value;
         const Givenquantity = quantityRef.current.value;
-        
+
         if (Givenquantity < min_order_quan) {
             toast.error(`You need To atleast order ${min_order_quan} pieces`)
         } else if (Givenquantity > quantity) {
             toast.error("We are Sorry but We don't have that much in our Stock")
         }
         else {
-            console.log("Tast failed successfully")
+            const purchase = {
+                toolId: _id,
+                toolName: name,
+                PurchaserName: PurchaserName,
+                PurchaserEmail: email,
+                location: location,
+                number: number,
+                shopName: shopName,
+                Givenquantity: Givenquantity
+            };
+
+            fetch('http://localhost:5000/purchase', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(purchase)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast.info("Order SuccessFully Placed")
+                    console.log(data)
+                })
+            window.location.reload();
         }
     }
     return (
