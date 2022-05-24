@@ -29,5 +29,6 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #9400d3, #3F00FF);
+  border: 2px solid green
 
 }
