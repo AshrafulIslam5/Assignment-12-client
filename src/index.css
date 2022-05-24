@@ -1,3 +1,4 @@
+/* tailwind config here */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,13 +7,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+/* default always Font */
 * {
   font-family: 'Poppins', sans-serif;
 }
 
+/* custom Font */
 .font-Mont {
   font-family: 'Montserrat', sans-serif;
 }
+
+/* ok I really learnt this cool way to change scrollbar from google while doing this assignment :) */
 
 ::-webkit-scrollbar {
   width: 12px;
