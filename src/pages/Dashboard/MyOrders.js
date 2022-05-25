@@ -1,25 +1,18 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import Spinner from '../Shared/Spinner';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
-    const [UserFromDB, setUserFromDB] = useState({});
     const [orders, setOrders] = useState([]);
-    const [previousQuan, setPreviousQuan] = useState(0)
-    useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`).then(res => res.json()).then(data => setUserFromDB(data))
-    }, [user]);
 
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/purchase/${user?.email}`, {
+            fetch(`http://localhost:5000/purchase?email=${user?.email}`, {
                 method: "GET",
                 headers: {
                     'authorization': `bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +27,9 @@ const MyOrders = () => {
             }).then(data => setOrders(data))
         }
     }, [user, navigate]);
+
     let newQuantity;
+    
     const handleDelete = (id, toolId, quantity) => {
         fetch(`http://localhost:5000/purchase/${id}`, {
             method: "DELETE",
@@ -52,10 +47,9 @@ const MyOrders = () => {
             body: JSON.stringify(newQuantity = {
                 FinalQuantity: quantity + data.quantity
             })
-        }).then(res => res.json()).then(lastData => console.log(lastData)));
+        }).then(res => res.json()))
 
     }
-
 
     return (
         <div>
@@ -73,7 +67,18 @@ const MyOrders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map((order, index) => <tr>
+                        {orders?.length === 0
+                            ? 
+                            <>
+                                <th>1</th>
+                                <th>No Purchases yet</th>
+                                <th>No Purchases yet</th>
+                                <th>No Purchases yet</th>
+                                <th>No Purchases yet</th>
+                                <th></th>
+                            </>
+                            :
+                            orders?.map((order, index) => <tr>
                             <th>{index + 1}</th>
                             <td>{order.PurchaserName}</td>
                             <td>{order.toolName}</td>
@@ -83,7 +88,7 @@ const MyOrders = () => {
                                 order.paidStatus === false
                                     ?
                                     <>
-                                        <button className='btn btn-secondary text-white btn-xs px-5'>Pay</button>
+                                        <button onClick={() => navigate(`/dashboard/payment/${order._id}`)} className='btn btn-secondary text-white btn-xs px-5'>Pay</button>
                                         <label for="delete-confirmation" className="btn btn-error btn-xs ml-2 text-white">delete</label>
                                     </>
                                     :

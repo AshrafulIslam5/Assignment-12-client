@@ -64,9 +64,9 @@ const MyProfile = () => {
         <div>
             <h2 className='text-2xl mt-2'>Your <span className='text-secondary'>Profile</span></h2>
             <div className='mt-5 bg-base-100 p-5 rounded-md'>
-                <div className='flex items-center'>
-                    <img className='w-1/6' src={user?.photoURL} alt="" />
-                    <div className='ml-10'>
+                <div className='flex flex-col md:flex-row items-center'>
+                    <img className='w-3/6 mask mask-squircle  md:w-1/6' src={user?.photoURL} alt="" />
+                    <div className='md:ml-10 text-center'>
                         <h2 className='text-3xl'>{user?.displayName}</h2>
                         <h2>{user?.email}</h2>
                         <h2 className='text-sm text-slate-500'>{UserFromDB?.location}</h2>
@@ -74,9 +74,9 @@ const MyProfile = () => {
                     </div>
                 </div>
 
-                <h2 className='mx-auto font-semibold text-center text-3xl w-1/2 border-4 border-secondary border-t-0 border-x-0 py-5 my-10'>Update Your Profile</h2>
+                <h2 className='mx-auto font-semibold text-center md:text-3xl md:w-1/2 border-4 border-secondary border-t-0 border-x-0 py-5 my-10'>Update Your Profile</h2>
                 <form onSubmit={handleSubmit(UpdateUserProfile)}>
-                    <div className='my-10 flex'>
+                    <div className='my-10 md:flex'>
                         <div className='w-full'>
                             <label htmlFor="name" className="text-secondary">
                                 Change Your Name
@@ -111,7 +111,7 @@ const MyProfile = () => {
                             />
                         </div>
                     </div>
-                    <div className='my-10 flex'>
+                    <div className='my-10 md:flex'>
                         <div className='w-full'>
                             <label htmlFor="location" className="text-secondary">
                                 Your Location
@@ -146,11 +146,11 @@ const MyProfile = () => {
 
                     </div>
                     <div className='flex my-5 gap-10 items-center'>
-                        <label className='btn btn-primary text-white'>
+                        <label className='btn btn-primary w-full md:w-auto text-white'>
                             <input {...register("photo")} type="file" required />
                             <span>Update Photo</span>
                         </label>
-                        <p><small>*Update your Profile Picture if you don't have any*</small></p>
+                        <p className='hidden md:block'><small>*Update your Profile Picture if you don't have any*</small></p>
                     </div>
                     <input className='btn btn-secondary text-white' type="submit" value="Update My Profile" />
                 </form>
