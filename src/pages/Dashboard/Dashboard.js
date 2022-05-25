@@ -5,7 +5,7 @@ const Dashboard = () => {
     return (
         <div class="drawer drawer-mobile">
             <input id="dashboard" type="checkbox" class="drawer-toggle" />
-            <div class="md:rounded-tl-xl drawer-content p-10 bg-base-200">
+            <div class="md:rounded-tl-xl drawer-content p-10 bg-base-300">
                 <div className='flex justify-between'>
                     <h2 className='text-5xl text-primary font-Mont font-semibold'>Your Dashboard</h2>
                     <label for="dashboard" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>

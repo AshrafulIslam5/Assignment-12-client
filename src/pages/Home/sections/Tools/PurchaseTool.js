@@ -23,17 +23,21 @@ const PurchaseTool = () => {
     }, [id]);
 
 
-    const { _id, name, img, description, min_order_quan, quantity, Perprice } = tool;
+    const { _id, name, img, description, min_order_quan, quantity, Perprice, price } = tool;
 
+    
     const HandleOrder = e => {
         e.preventDefault();
-        const PurchaserName = user.displayName;
-        const email = user.email;
+        const Givenquantity = parseInt(quantityRef.current.value);
+        const PurchaserName = user?.displayName;
         const location = locationRef.current.value;
         const number = numberRef.current.value;
         const shopName = shopRef.current.value;
-        const Givenquantity = quantityRef.current.value;
-
+        const realPrice = price * Givenquantity;
+        const email = user?.email;
+        const lastQuantity = {
+            FinalQuantity: quantity - Givenquantity
+        }
         if (Givenquantity < min_order_quan) {
             toast.error(`You need To atleast order ${min_order_quan} pieces`)
         } else if (Givenquantity > quantity) {
@@ -48,7 +52,9 @@ const PurchaseTool = () => {
                 location: location,
                 number: number,
                 shopName: shopName,
-                Givenquantity: Givenquantity
+                quantity: Givenquantity,
+                NeedToPay: realPrice,
+                paidStatus: false
             };
 
             fetch('http://localhost:5000/purchase', {
@@ -62,10 +68,25 @@ const PurchaseTool = () => {
                 .then(data => {
                     toast.info("Order SuccessFully Placed")
                     console.log(data)
-                })
-            window.location.reload();
+                });
+
+            fetch(`http://localhost:5000/tools/${_id}`, {
+                method: "PUT",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(lastQuantity)
+            }).then(res => res.json()).then(data => {
+                window.location.reload()
+                console.log(data)
+            })
         }
+
+
     }
+
+
+
     return (
         <div className='flex flex-col items-center'>
             <h2 className='font-semibold text-center text-3xl w-1/2 border-4 border-secondary border-x-0 py-5 my-10'>Order for <span className='text-primary'>{name}</span></h2>

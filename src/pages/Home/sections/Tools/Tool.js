@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
     const { _id, name, img, description, min_order_quan, quantity, price } = tool;
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    
     return (
         <div class="card w-full bg-base-100 shadow-xl relative pb-4">
             <figure className='p-6 mb-56 md:mb-44'><img src={img} alt="" /></figure>
