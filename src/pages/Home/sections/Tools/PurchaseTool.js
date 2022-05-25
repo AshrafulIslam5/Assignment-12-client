@@ -6,6 +6,7 @@ import auth from '../../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './PurchaseTool.css'
 import { toast } from 'react-toastify';
+import Spinner from '../../../Shared/Spinner';
 
 const PurchaseTool = () => {
     // Input Refs
@@ -22,10 +23,12 @@ const PurchaseTool = () => {
         fetch(`http://localhost:5000/tools/${id}`).then(res => res.json()).then(data => setTool(data))
     }, [id]);
 
-
+    if (tool === {}) {
+        return <Spinner></Spinner>
+    }
     const { _id, name, img, description, min_order_quan, quantity, Perprice, price } = tool;
 
-    
+
     const HandleOrder = e => {
         e.preventDefault();
         const Givenquantity = parseInt(quantityRef.current.value);
@@ -54,7 +57,8 @@ const PurchaseTool = () => {
                 shopName: shopName,
                 quantity: Givenquantity,
                 NeedToPay: realPrice,
-                paidStatus: false
+                paidStatus: false,
+                Status: 'unpaid'
             };
 
             fetch('http://localhost:5000/purchase', {
@@ -64,11 +68,7 @@ const PurchaseTool = () => {
                 },
                 body: JSON.stringify(purchase)
             })
-                .then(res => res.json())
-                .then(data => {
-                    toast.info("Order SuccessFully Placed")
-                    console.log(data)
-                });
+                .then(res => res.json());
 
             fetch(`http://localhost:5000/tools/${_id}`, {
                 method: "PUT",
@@ -77,8 +77,8 @@ const PurchaseTool = () => {
                 },
                 body: JSON.stringify(lastQuantity)
             }).then(res => res.json()).then(data => {
-                window.location.reload()
-                console.log(data)
+                window.location.reload();
+                toast.info("Order SuccessFully Placed")
             })
         }
 

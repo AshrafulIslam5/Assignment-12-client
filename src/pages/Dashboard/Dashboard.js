@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import DashboardLink from './DashboardLink';
 const Dashboard = () => {
     return (
@@ -11,9 +11,8 @@ const Dashboard = () => {
                     <label for="dashboard" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div>
                 <Outlet />
-
             </div>
-            <div class="drawer-side ">
+            <div class="drawer-side">
                 <label for="dashboard" class="drawer-overlay"></label>
                 <div class="menu p-4 w-60 bg-base-100 text-base-content">
                     <DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard'}>My Orders</DashboardLink>

@@ -4,10 +4,10 @@ import auth from '../../firebase.init';
 
 const AddReview = () => {
     const textAreaRef = useRef('')
-    const [user] = useAuthState(auth);
-    const [UserFromDB, setUserFromDB] = useState({});
     const [rating, setRating] = useState(0);
+    const [user] = useAuthState(auth);
     const updatedEmail = user?.email;
+    const [UserFromDB, setUserFromDB] = useState({});
     useEffect(() => {
         fetch(`http://localhost:5000/user/${updatedEmail}`).then(res => res.json()).then(data => setUserFromDB(data))
     }, [updatedEmail]);
@@ -24,10 +24,6 @@ const AddReview = () => {
         givenReview: review,
         rating: rated
     }
-
-
-
-    // }, [rating, UserFromDB]);
 
     const clicked_05 = r => {
         setRating(r)
