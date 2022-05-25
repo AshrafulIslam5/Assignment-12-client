@@ -14,6 +14,7 @@ import MyProfile from "./pages/Dashboard/MyProfile";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReview from "./pages/Dashboard/AddReview";
 import AllReviews from "./pages/Reviews/AllReviews";
+import Require from "./pages/RequireAuth/Require";
 
 
 function App() {
@@ -23,11 +24,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
-        <Route path="/purchase/:id" element={<PurchaseTool></PurchaseTool>} />
+        <Route path="/purchase/:id" element={<Require><PurchaseTool></PurchaseTool></Require>} />
         <Route path="/portfolio" element={<Portfolio></Portfolio>} />
         <Route path="/allreviews" element={<AllReviews></AllReviews>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+        <Route path="/dashboard" element={<Require><Dashboard></Dashboard></Require>}>
           <Route index element={<MyOrders></MyOrders>} />
           <Route path="myProfile" element={<MyProfile></MyProfile>} />
           <Route path="addReview" element={<AddReview></AddReview>} />

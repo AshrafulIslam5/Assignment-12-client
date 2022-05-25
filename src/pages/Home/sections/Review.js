@@ -1,23 +1,26 @@
 import React from 'react';
 
 const Review = ({ review }) => {
-    const { name, Location, img, givenReview, rating } = review;
+    let { name, Location, img, givenReview, rating } = review;
+    if (rating === 0 || rating === '' || rating === undefined || rating === null) {
+        rating = 0.5;
+    }
 
     let ratings;
 
-    // sorry for so many repeated codes...... I tried ternary in many ways but didn't work, but this worked for me....
+    // sorry for so many repeated codes...... I tried ternary in many ways but didn't work for me, but this worked....
     if (rating === 0.5) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -25,32 +28,32 @@ const Review = ({ review }) => {
 
     if (rating === 1) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
 
     if (rating === 1.5) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -58,16 +61,16 @@ const Review = ({ review }) => {
 
     if (rating === 2) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -75,16 +78,16 @@ const Review = ({ review }) => {
 
     if (rating === 2.5) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -92,16 +95,16 @@ const Review = ({ review }) => {
 
     if (rating === 3) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -109,16 +112,16 @@ const Review = ({ review }) => {
 
     if (rating === 3.5) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -126,16 +129,16 @@ const Review = ({ review }) => {
 
     if (rating === 4) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -143,16 +146,16 @@ const Review = ({ review }) => {
 
     if (rating === 4.5) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled checked />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
         </>
     }
 
@@ -160,16 +163,16 @@ const Review = ({ review }) => {
 
     if (rating === 5) {
         ratings = <>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled ></input>
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-1" disabled />
-            <input type="radio" name={`${name}`} class="bg-primary mask mask-star-2 mask-half-2" disabled checked />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled ></input>
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-1" disabled />
+            <input type="radio" name={`${name}`} class="cursor-default bg-primary mask mask-star-2 mask-half-2" disabled checked />
         </>
     }
 
