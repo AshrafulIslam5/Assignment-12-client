@@ -62,7 +62,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h2 className='text-2xl mt-2'><span className='text-secondary'>Update</span> Your Profile</h2>
+            <h2 className='text-2xl mt-2'>Your <span className='text-secondary'>Profile</span></h2>
             <div className='mt-5 bg-base-100 p-5 rounded-md'>
                 <div className='flex items-center'>
                     <img className='w-1/6' src={user?.photoURL} alt="" />

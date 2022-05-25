@@ -13,6 +13,7 @@ import PurchaseTool from "./pages/Home/sections/Tools/PurchaseTool";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReview from "./pages/Dashboard/AddReview";
+import AllReviews from "./pages/Reviews/AllReviews";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/home" element={<Home></Home>} />
         <Route path="/purchase/:id" element={<PurchaseTool></PurchaseTool>} />
         <Route path="/portfolio" element={<Portfolio></Portfolio>} />
+        <Route path="/allreviews" element={<AllReviews></AllReviews>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="/dashboard" element={<Dashboard></Dashboard>}>
           <Route index element={<MyOrders></MyOrders>} />

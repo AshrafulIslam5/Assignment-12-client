@@ -19,6 +19,7 @@ const Header = () => {
     const navlinks = <>
         <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/">Home</CustomLink>
         <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/portfolio">Portfolio</CustomLink>
+        <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/allreviews">Reviews</CustomLink>
         <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/blogs">Blogs</CustomLink>
         {user && <CustomLink className='hover:bg-slate-100 py-3 px-2 rounded-lg active:bg-secondary active:text-white' to="/dashboard">Dashboard</CustomLink>}
         {loading ? <HeaderSpinner></HeaderSpinner> :
