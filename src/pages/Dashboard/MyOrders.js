@@ -47,7 +47,7 @@ const MyOrders = () => {
             body: JSON.stringify(newQuantity = {
                 FinalQuantity: quantity + data.quantity
             })
-        }).then(res => res.json()))
+        }).then(res => res.json())).then(data => { window.location.reload() });
 
     }
 
@@ -89,7 +89,7 @@ const MyOrders = () => {
                                         ?
                                         <>
                                             <button onClick={() => navigate(`/dashboard/payment/${order._id}`)} className='btn btn-secondary text-white btn-xs px-5'>Pay</button>
-                                            <label for="delete-confirmation" className="btn btn-error btn-xs ml-2 text-white">delete</label>
+                                            <label for={index} className="btn btn-error btn-xs ml-2 text-white">delete</label>
                                         </>
                                         :
                                         <>
@@ -97,13 +97,13 @@ const MyOrders = () => {
                                             <label htmlFor='details' className="btn btn-primary btn-xs ml-2 text-white">details</label>
                                         </>
                                 } </td>
-                                <input type="checkbox" id="delete-confirmation" class="modal-toggle" />
+                                <input type="checkbox" id={index} class="modal-toggle" />
                                 <div class="modal">
                                     <div class="flex flex-col modal-box">
-                                        <h2 className='mx-auto text-2xl'>Are you sure?</h2>
+                                        <h2 className='mx-auto text-xl'>Are you sure You want to delete {order.toolName}?</h2>
                                         <div className='mx-auto mt-3'>
-                                            <label onClick={() => handleDelete(order._id, order.toolId, order.quantity)} for="delete-confirmation" class="btn btn-secondary text-white btn-sm px-5">Yes</label>
-                                            <label for="delete-confirmation" class="ml-2 btn-sm px-5 btn btn-error text-white">No</label>
+                                            <label onClick={() => handleDelete(order._id, order.toolId, order.quantity)} for={index} class="btn btn-secondary text-white btn-sm px-5">Yes</label>
+                                            <label for={index} class="ml-2 btn-sm px-5 btn btn-error text-white">No</label>
                                         </div>
                                     </div>
                                 </div>
