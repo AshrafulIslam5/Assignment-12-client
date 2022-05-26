@@ -29,7 +29,7 @@ const MyOrders = () => {
     }, [user, navigate]);
 
     let newQuantity;
-    
+
     const handleDelete = (id, toolId, quantity) => {
         fetch(`http://localhost:5000/purchase/${id}`, {
             method: "DELETE",
@@ -68,7 +68,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {orders?.length === 0
-                            ? 
+                            ?
                             <>
                                 <th>1</th>
                                 <th>No Purchases yet</th>
@@ -79,35 +79,47 @@ const MyOrders = () => {
                             </>
                             :
                             orders?.map((order, index) => <tr>
-                            <th>{index + 1}</th>
-                            <td>{order.PurchaserName}</td>
-                            <td>{order.toolName}</td>
-                            <td>{order.quantity} Pieces</td>
-                            <td>${order.NeedToPay}</td>
-                            <td>{
-                                order.paidStatus === false
-                                    ?
-                                    <>
-                                        <button onClick={() => navigate(`/dashboard/payment/${order._id}`)} className='btn btn-secondary text-white btn-xs px-5'>Pay</button>
-                                        <label for="delete-confirmation" className="btn btn-error btn-xs ml-2 text-white">delete</label>
-                                    </>
-                                    :
-                                    <>
-                                        <p className=' inline-block badge badge-secondary badge-outline px-4'>Paid</p>
-                                        <button className="btn btn-primary btn-xs ml-2 text-white">details</button>
-                                    </>
-                            } </td>
-                            <input type="checkbox" id="delete-confirmation" class="modal-toggle" />
-                            <div class="modal">
-                                <div class="flex flex-col modal-box">
-                                    <h2 className='mx-auto text-2xl'>Are you sure?</h2>
-                                    <div className='mx-auto mt-3'>
-                                        <label onClick={() => handleDelete(order._id, order.toolId, order.quantity)} for="delete-confirmation" class="btn btn-secondary text-white btn-sm px-5">Yes</label>
-                                        <label for="delete-confirmation" class="ml-2 btn-sm px-5 btn btn-error text-white">No</label>
+                                <th>{index + 1}</th>
+                                <td>{order.PurchaserName}</td>
+                                <td>{order.toolName}</td>
+                                <td>{order.quantity} Pieces</td>
+                                <td>${order.NeedToPay}</td>
+                                <td>{
+                                    order.paidStatus === false
+                                        ?
+                                        <>
+                                            <button onClick={() => navigate(`/dashboard/payment/${order._id}`)} className='btn btn-secondary text-white btn-xs px-5'>Pay</button>
+                                            <label for="delete-confirmation" className="btn btn-error btn-xs ml-2 text-white">delete</label>
+                                        </>
+                                        :
+                                        <>
+                                            <p className=' inline-block badge badge-secondary badge-outline px-4'>Paid</p>
+                                            <label htmlFor='details' className="btn btn-primary btn-xs ml-2 text-white">details</label>
+                                        </>
+                                } </td>
+                                <input type="checkbox" id="delete-confirmation" class="modal-toggle" />
+                                <div class="modal">
+                                    <div class="flex flex-col modal-box">
+                                        <h2 className='mx-auto text-2xl'>Are you sure?</h2>
+                                        <div className='mx-auto mt-3'>
+                                            <label onClick={() => handleDelete(order._id, order.toolId, order.quantity)} for="delete-confirmation" class="btn btn-secondary text-white btn-sm px-5">Yes</label>
+                                            <label for="delete-confirmation" class="ml-2 btn-sm px-5 btn btn-error text-white">No</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </tr>)}
+                                <input type="checkbox" id="details" class="modal-toggle" />
+                                <div class="modal">
+                                    <div class="flex flex-col modal-box">
+                                        <label for="details" class="btn btn-sm btn-primary text-white btn-circle absolute right-2 top-2">✕</label>
+                                        <p className='text-2xl text-primary'>Details about your paid Product</p>
+                                        <p><strong>Item Purchaser: </strong>{order.PurchaserName}</p>
+                                        <p><strong>Item Purchased: </strong>{order.toolName}</p>
+                                        <p><strong>Item Purchased: </strong>{order.quantity} Pieces</p>
+                                        <p><strong>Paid: </strong>${order.NeedToPay}</p>
+                                        <p><strong>Transaction Id: </strong>{order.transactionId}</p>
+                                    </div>
+                                </div>
+                            </tr>)}
                     </tbody>
                 </table>
             </div>
