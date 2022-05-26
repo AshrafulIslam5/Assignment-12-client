@@ -134,6 +134,7 @@ const AddProduct = () => {
 
                     <input type="submit" className='btn btn-secondary text-white' value={'Add The Product'} />
                 </form>
+                <button onClick={() => navigate('/dashboard/manageProducts')} className='btn btn-primary rounded-none mt-10 text-lg gap-3'> <ion-icon name="arrow-back-sharp"></ion-icon> Go back</button>
             </div>
         </div>
     );
