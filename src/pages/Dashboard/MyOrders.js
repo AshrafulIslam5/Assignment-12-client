@@ -53,7 +53,7 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h2 className='text-xl mt-2'>This are your <span className='text-secondary'>Orders</span></h2>
+            <h2 className='text-xl my-3'>This are your <span className='text-secondary'>Orders</span></h2>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -94,7 +94,7 @@ const MyOrders = () => {
                                         :
                                         <>
                                             <p className=' inline-block badge badge-secondary badge-outline px-4'>Paid</p>
-                                            <label htmlFor='details' className="btn btn-primary btn-xs ml-2 text-white">details</label>
+                                            <label htmlFor={order.toolName} className="btn btn-primary btn-xs ml-2 text-white">details</label>
                                         </>
                                 } </td>
                                 <input type="checkbox" id={index} class="modal-toggle" />
@@ -107,10 +107,10 @@ const MyOrders = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <input type="checkbox" id="details" class="modal-toggle" />
+                                <input type="checkbox" id={order.toolName} class="modal-toggle" />
                                 <div class="modal">
                                     <div class="flex flex-col modal-box">
-                                        <label for="details" class="btn btn-sm btn-primary text-white btn-circle absolute right-2 top-2">✕</label>
+                                        <label for={order.toolName} class="btn btn-sm btn-primary text-white btn-circle absolute right-2 top-2">✕</label>
                                         <p className='text-2xl text-primary'>Details about your paid Product</p>
                                         <p><strong>Item Purchaser: </strong>{order.PurchaserName}</p>
                                         <p><strong>Item Purchased: </strong>{order.toolName}</p>
