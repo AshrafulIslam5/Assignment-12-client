@@ -41,7 +41,6 @@ const Login = () => {
     const forgetPass = async e => {
         e.preventDefault();
         const resetEmail = resetEmailRef.current.value;
-        console.log(resetEmail)
         await sendPasswordResetEmail(resetEmail);
         if (ResetError) {
             toast.error(ResetError?.message)

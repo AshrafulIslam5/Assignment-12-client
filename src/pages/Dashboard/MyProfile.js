@@ -9,7 +9,7 @@ const MyProfile = () => {
     const { register, handleSubmit } = useForm();
     const [updateProfile, updating, Uerror] = useUpdateProfile(auth);
     const imagebbKey = '05f94c8b5b6970010a4d4d5d9deb7468';
-    
+
     const [UserFromDB, setUserFromDB] = useState({});
     const updatedEmail = user?.email;
     useEffect(() => {
@@ -20,14 +20,14 @@ const MyProfile = () => {
     if (updating) {
         return <Spinner></Spinner>
     }
+    let error;
     if (Uerror) {
-        console.log(Uerror?.message)
+        error = Uerror?.message
     }
     const updateUser = async (name, pfp) => {
         await updateProfile({ displayName: name, photoURL: pfp })
     }
     const UpdateUserProfile = async data => {
-        console.log(data);
         const photo = data.photo[0];
         const formData = new FormData();
         const url = `https://api.imgbb.com/1/upload?key=${imagebbKey}`;
@@ -152,6 +152,7 @@ const MyProfile = () => {
                         </label>
                         <p className='hidden md:block'><small>*Update your Profile Picture if you don't have any*</small></p>
                     </div>
+                    {error}
                     <input className='btn btn-secondary text-white' type="submit" value="Update My Profile" />
                 </form>
 
