@@ -9,7 +9,7 @@ const useGetUserAndToken = user => {
             fetch(`http://localhost:5000/user/${email}`, {
                 method: 'PUT',
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
                 },
                 body: JSON.stringify(currentUser)
             })
