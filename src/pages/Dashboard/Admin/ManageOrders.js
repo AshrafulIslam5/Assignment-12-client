@@ -30,7 +30,18 @@ const ManageOrders = () => {
         })
     };
 
-    
+    const Ship = id => {
+        fetch(`http://localhost:5000/allPurchases/${id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }).then(res => res.json()).then(data => {
+            refetch();
+        })
+    }
+
 
     return (
         <div>
@@ -67,7 +78,7 @@ const ManageOrders = () => {
                                         :
                                         order.Status === 'pending'
                                             ?
-                                            <td><label className='btn bg-secondary hover:bg-secondary btn-xs px-[26px] text-white border-0'>Ship</label></td>
+                                            <td><label htmlFor={order.transactionId} className='btn bg-secondary hover:bg-secondary btn-xs px-[26px] text-white border-0'>Ship</label></td>
                                             :
                                             <td></td>
                                 }
@@ -81,6 +92,20 @@ const ManageOrders = () => {
                                             <label onClick={() => deleteOrder(order._id)} for={order._id} class="btn btn-secondary text-white btn-sm px-5">Yes</label>
 
                                             <label for={order._id} class="ml-2 btn-sm px-5 btn btn-error text-white">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="checkbox" id={order.transactionId} class="modal-toggle" />
+                                <div class="modal">
+                                    <div class="flex flex-col modal-box">
+                                        <h2 className='mx-auto text-xl'>Are you sure You want to Ship</h2>
+                                        <h2 className='text-center'> {order.PurchaserEmail}'s order for {order.toolName}?</h2>
+                                        <div className='mx-auto mt-3'>
+
+                                            <label onClick={() => Ship(order._id)} for={order.transactionId} class="btn btn-secondary text-white btn-sm px-5">Yes</label>
+
+                                            <label for={order.transactionId} class="ml-2 btn-sm px-5 btn btn-error text-white">No</label>
                                         </div>
                                     </div>
                                 </div>

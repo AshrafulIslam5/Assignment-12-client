@@ -43,13 +43,14 @@ const AddProduct = () => {
 
 
     return (
-        <div className='p-10 bg-base-200'>
+        <div className='md:p-10 mt-10 bg-base-200'>
             <div className='bg-base-100 p-10'>
                 <form onSubmit={handleSubmit(AddPro)}>
+                    <h2 className='text-center text-2xl'>Add Product</h2>
                     <div className='my-10 md:flex'>
                         <div className='w-full'>
                             <label htmlFor="name" className="text-secondary">
-                                Change Your Name
+                                Name of Your Product
                             </label>
                             <input
                                 {...register("name")}

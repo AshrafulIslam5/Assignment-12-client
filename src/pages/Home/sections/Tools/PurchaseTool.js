@@ -36,7 +36,7 @@ const PurchaseTool = () => {
         const location = locationRef.current.value;
         const number = numberRef.current.value;
         const shopName = shopRef.current.value;
-        const realPrice = price * Givenquantity;
+        const realPrice = Math.round(price * Givenquantity);
         const email = user?.email;
         const lastQuantity = {
             FinalQuantity: quantity - Givenquantity

@@ -87,6 +87,7 @@ const Portfolio = () => {
                     </div>
                     <div>
                         <h2 className='mt-3 text-3xl font-Mont '>Ashraful Islam</h2>
+                        <h2 className='mb-3 font-Mont '>ashraful.islam.mihad@gmail.com</h2>
                         <h2 className='text-sm text-secondary'>Web Developer</h2>
                     </div>
                     <div className='w-24 mt-5'>
