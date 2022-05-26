@@ -11,7 +11,7 @@ const Dashboard = () => {
         fetch(`http://localhost:5000/user/${email}`).then(res => res.json()).then(data => setUserFromDB(data))
     }, [email]);
 
-    const { role } = UserFromDB;
+    const { admin } = UserFromDB;
     return (
         <div class="drawer">
             <input id="dashboard" type="checkbox" class="drawer-toggle" />
@@ -25,11 +25,11 @@ const Dashboard = () => {
             <div class="drawer-side">
                 <label for="dashboard" class="drawer-overlay"></label>
                 <div class="menu p-4 w-60 bg-base-100 text-base-content">
-                    {role === 'user' && <><DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard'}>My Profile</DashboardLink>
+                    {!admin && <><DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard'}>My Profile</DashboardLink>
                         <DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard/myOrders'}>My Orders</DashboardLink>
                         <DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard/addReview'}>Give a Review</DashboardLink></>}
                     {
-                        role === 'admin' && <>
+                        admin === true && <>
                             <DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard'}>My Profile</DashboardLink>
                             <DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard/manageOrders'}>Manage Orders</DashboardLink>
                             <DashboardLink className="btn btn-ghost w-52 mb-2" to={'/dashboard/manageUsers'}>Manage Users</DashboardLink>
