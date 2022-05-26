@@ -1,0 +1,9 @@
+.ContactUS{
+    background: url(../../../../images/contactUs.jpg);
+    height: 60vh;
+    background-size: cover;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

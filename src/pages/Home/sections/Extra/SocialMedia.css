@@ -1,0 +1,31 @@
+.SocialBG{
+    background: url(../../../../images/socialbg.png);
+    height: 60vh;
+    background-size: cover;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.social_icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+.social_icon li{
+    list-style: none;
+}
+.social_icon li a{
+    font-size: 5em;
+    color: #ffffff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+.social_icon li a:hover{
+    transform: translateY(-5px);
+}

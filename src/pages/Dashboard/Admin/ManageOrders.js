@@ -5,7 +5,7 @@ import Spinner from '../../Shared/Spinner';
 
 const ManageOrders = () => {
 
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/allPurchases', {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://stark-chamber-76919.herokuapp.com/allPurchases', {
         method: "GET",
         headers: {
             'content-type': 'application/json',
@@ -18,7 +18,7 @@ const ManageOrders = () => {
     }
 
     const deleteOrder = id => {
-        fetch(`http://localhost:5000/purchase/${id}`, {
+        fetch(`https://stark-chamber-76919.herokuapp.com/purchase/${id}`, {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',
@@ -31,7 +31,7 @@ const ManageOrders = () => {
     };
 
     const Ship = id => {
-        fetch(`http://localhost:5000/allPurchases/${id}`, {
+        fetch(`https://stark-chamber-76919.herokuapp.com/allPurchases/${id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',

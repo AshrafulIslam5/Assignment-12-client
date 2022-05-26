@@ -13,12 +13,12 @@ const RequireAdmin = ({ children }) => {
     // const [UserFromDB, setUserFromDB] = useState([]);
     // const email = user?.email;
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/user/${email}`).then(res => res.json()).then(data => setUserFromDB(data))
+    //     fetch(`https://stark-chamber-76919.herokuapp.com/user/${email}`).then(res => res.json()).then(data => setUserFromDB(data))
     // }, [email]);
 
     // const { admin } = UserFromDB;
 
-    
+
 
     if (loading || adminLoading) {
         return <Spinner></Spinner>

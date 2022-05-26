@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51L1CmjIKCOf2xcPTbOrT78OStsjLNJDh1cdiY
 const Payment = () => {
     const { id } = useParams();
 
-    const { data: order, isLoading } = useQuery(['order', id], () => fetch(`http://localhost:5000/purchase/${id}`, {
+    const { data: order, isLoading } = useQuery(['order', id], () => fetch(`https://stark-chamber-76919.herokuapp.com/purchase/${id}`, {
         method: "GET",
         headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`

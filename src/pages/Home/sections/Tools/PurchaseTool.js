@@ -20,7 +20,7 @@ const PurchaseTool = () => {
     const [user] = useAuthState(auth)
     const [tool, setTool] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${id}`).then(res => res.json()).then(data => setTool(data))
+        fetch(`https://stark-chamber-76919.herokuapp.com/tools/${id}`).then(res => res.json()).then(data => setTool(data))
     }, [id]);
 
     if (tool === {}) {
@@ -61,7 +61,7 @@ const PurchaseTool = () => {
                 Status: 'unpaid'
             };
 
-            fetch('http://localhost:5000/purchase', {
+            fetch('https://stark-chamber-76919.herokuapp.com/purchase', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -70,7 +70,7 @@ const PurchaseTool = () => {
             })
                 .then(res => res.json());
 
-            fetch(`http://localhost:5000/tools/${_id}`, {
+            fetch(`https://stark-chamber-76919.herokuapp.com/tools/${_id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json'

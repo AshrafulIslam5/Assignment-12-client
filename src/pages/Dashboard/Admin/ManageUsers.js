@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import Spinner from '../../Shared/Spinner';
 
 const ManageUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('user', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('user', () => fetch('https://stark-chamber-76919.herokuapp.com/user', {
         method: "GET",
         headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -16,7 +16,7 @@ const ManageUsers = () => {
     };
 
     const makeAdmin = email => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://stark-chamber-76919.herokuapp.com/user/admin/${email}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ const ManageUsers = () => {
     }
 
     const handleDelete = email => {
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://stark-chamber-76919.herokuapp.com/user/${email}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

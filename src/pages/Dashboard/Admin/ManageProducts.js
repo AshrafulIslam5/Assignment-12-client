@@ -6,7 +6,7 @@ import ManageProduct from './ManageProduct';
 
 const ManageProducts = () => {
     const navigate = useNavigate()
-    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res => res.json()))
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://stark-chamber-76919.herokuapp.com/tools').then(res => res.json()))
 
     if (isLoading) {
         return <Spinner></Spinner>

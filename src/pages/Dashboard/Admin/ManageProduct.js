@@ -13,7 +13,7 @@ const ManageProduct = ({ tool, refetch }) => {
                 FinalQuantity: quantity + Givenquantity
             }
 
-            fetch(`http://localhost:5000/tools/${_id}`, {
+            fetch(`https://stark-chamber-76919.herokuapp.com/tools/${_id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json'
@@ -27,7 +27,7 @@ const ManageProduct = ({ tool, refetch }) => {
     }
 
     const deleteProduct = id => {
-        fetch(`http://localhost:5000/tools/${_id}`, {
+        fetch(`https://stark-chamber-76919.herokuapp.com/tools/${_id}`, {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',

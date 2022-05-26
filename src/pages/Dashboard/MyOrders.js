@@ -12,7 +12,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/purchase?email=${user?.email}`, {
+            fetch(`https://stark-chamber-76919.herokuapp.com/purchase?email=${user?.email}`, {
                 method: "GET",
                 headers: {
                     'authorization': `bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +31,7 @@ const MyOrders = () => {
     let newQuantity;
 
     const handleDelete = (id, toolId, quantity) => {
-        fetch(`http://localhost:5000/purchase/${id}`, {
+        fetch(`https://stark-chamber-76919.herokuapp.com/purchase/${id}`, {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +39,7 @@ const MyOrders = () => {
             }
         }).then(res => res.json());
 
-        fetch(`http://localhost:5000/tools/${toolId}`).then(res => res.json()).then(data => fetch(`http://localhost:5000/tools/${toolId}`, {
+        fetch(`https://stark-chamber-76919.herokuapp.com/tools/${toolId}`).then(res => res.json()).then(data => fetch(`https://stark-chamber-76919.herokuapp.com/tools/${toolId}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

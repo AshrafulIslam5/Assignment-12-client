@@ -14,10 +14,10 @@ const CheckoutForm = ({ order }) => {
 
     const { NeedToPay: price, PurchaserName, PurchaserEmail, _id } = order
 
-    
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/createPaymentIntent', {
+        fetch('https://stark-chamber-76919.herokuapp.com/createPaymentIntent', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -75,14 +75,14 @@ const CheckoutForm = ({ order }) => {
                 transactionId: paymentIntent.id
             }
 
-            fetch(`http://localhost:5000/purchase/${_id}`, {
+            fetch(`https://stark-chamber-76919.herokuapp.com/purchase/${_id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json',
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(sendingTransactionId)
-            }).then(res => res.json()).then(data => {navigate('/dashboard')})
+            }).then(res => res.json()).then(data => { navigate('/dashboard') })
 
         };
     }

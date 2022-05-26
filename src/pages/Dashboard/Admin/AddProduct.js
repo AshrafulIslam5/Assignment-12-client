@@ -27,7 +27,7 @@ const AddProduct = () => {
             price: price
         }
 
-        fetch('http://localhost:5000/tools', {
+        fetch('https://stark-chamber-76919.herokuapp.com/tools', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

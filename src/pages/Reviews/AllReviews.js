@@ -6,14 +6,14 @@ import Spinner from '../Shared/Spinner';
 const AllReviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://stark-chamber-76919.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
     if (reviews.length === 0) {
         return <>
-        <h2 className='mx-auto font-semibold text-center text-3xl w-1/2 border-4 border-secondary border-t-0 border-x-0 py-5 my-10'>Reviews By Our Customers</h2>
-        <Spinner></Spinner>
+            <h2 className='mx-auto font-semibold text-center text-3xl w-1/2 border-4 border-secondary border-t-0 border-x-0 py-5 my-10'>Reviews By Our Customers</h2>
+            <Spinner></Spinner>
         </>
     }
     return (

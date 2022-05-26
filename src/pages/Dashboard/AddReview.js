@@ -1,22 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
+import Spinner from '../Shared/Spinner';
 
 const AddReview = () => {
     const textAreaRef = useRef('')
+    const nameRef = useRef('')
+    const locationRef = useRef('')
     const [rating, setRating] = useState(0);
     const [user] = useAuthState(auth);
     const updatedEmail = user?.email;
-    const [UserFromDB, setUserFromDB] = useState({});
-    useEffect(() => {
-        fetch(`http://localhost:5000/user/${updatedEmail}`).then(res => res.json()).then(data => setUserFromDB(data))
-    }, [updatedEmail]);
+    const { data: UserFromDB, isLoading } = useQuery('user', () => fetch(`https://stark-chamber-76919.herokuapp.com/user/${updatedEmail}`).then(res => res.json()))
 
-    const name = UserFromDB?.name;
-    const location = UserFromDB?.location;
+    if (isLoading) {
+        return <Spinner></Spinner>
+    }
+
+    const name = nameRef.current.value;
+    const location = locationRef.current.value;
     const review = textAreaRef?.current.value;
     const rated = rating;
-    const pfp = UserFromDB?.pfp;
+    const pfp = user.photoURL;
     const fullReview = {
         name: name,
         Location: location,
@@ -58,7 +63,7 @@ const AddReview = () => {
 
     const giveReview = e => {
         e.preventDefault()
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://stark-chamber-76919.herokuapp.com/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -76,12 +81,12 @@ const AddReview = () => {
                     <div className='md:flex'>
                         <div className='w-full py-2'>
                             <h2>Your Name</h2>
-                            <input className='bg-slate-200 input input-bordered border-t-0 border-x-0 input-primary rounded-none text-center w-full' type="text" value={UserFromDB.name} readOnly />
+                            <input className='bg-slate-200 input input-bordered border-t-0 border-x-0 input-primary rounded-none text-center w-full' type="text" value={UserFromDB.name} ref={nameRef} />
                         </div>
                         <div className='divider divider-horizontal'></div>
                         <div className='w-full py-2'>
                             <h2>Your Address</h2>
-                            <input className='bg-slate-200 input w-full input-bordered border-t-0 border-x-0 input-primary rounded-none text-center' type="text" value={UserFromDB.location} />
+                            <input className='bg-slate-200 input w-full input-bordered border-t-0 border-x-0 input-primary rounded-none text-center' type="text" value={UserFromDB.location} ref={locationRef} />
                         </div>
                     </div>
                     <div className='mt-5'>

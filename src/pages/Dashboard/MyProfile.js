@@ -13,7 +13,7 @@ const MyProfile = () => {
     const [UserFromDB, setUserFromDB] = useState({});
     const updatedEmail = user?.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${updatedEmail}`).then(res => res.json()).then(data => setUserFromDB(data))
+        fetch(`https://stark-chamber-76919.herokuapp.com/user/${updatedEmail}`).then(res => res.json()).then(data => setUserFromDB(data))
     }, [updatedEmail])
 
 
@@ -50,7 +50,7 @@ const MyProfile = () => {
                     number: updatedNumber,
                     email: updatedEmail,
                 }
-                fetch('http://localhost:5000/user', {
+                fetch('https://stark-chamber-76919.herokuapp.com/user', {
                     method: "PUT",
                     headers: {
                         'content-type': 'application/json'

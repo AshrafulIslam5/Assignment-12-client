@@ -6,7 +6,7 @@ import Spinner from '../../Shared/Spinner';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://stark-chamber-76919.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
@@ -15,11 +15,11 @@ const Reviews = () => {
 
     if (reviews.length === 0) {
         return <>
-        <h2 className='text-center my-20 text-4xl'>Our <span className='font-Mont font-extrabold text-primary'>C</span>ustomer's Reviews</h2>
-        <Spinner></Spinner>
+            <h2 className='text-center my-20 text-4xl'>Our <span className='font-Mont font-extrabold text-primary'>C</span>ustomer's Reviews</h2>
+            <Spinner></Spinner>
         </>
     }
-    
+
     return (
         <div className="flex flex-col">
             <h2 className='text-center my-20 text-4xl'>Our <span className='font-Mont font-extrabold text-primary'>C</span>ustomer's Reviews</h2>
